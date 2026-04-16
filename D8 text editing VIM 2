@@ -1,0 +1,77 @@
+
+Entering Execute Mode
+
+Execute Mode allows you to run commands for file operations, searching, and other advanced functionalities. To enter Execute Mode, press:
+
+:
+Practical:
+
+Open Vim:
+vim example.txt
+Enter Execute Mode and save the file:
+:w
+Quit Vim:
+:q
+Combine commands to save and quit:
+:wq
+Executing Basic Commands: File Operations, Searching, Line Numbering
+
+File Operations
+
+Save the file:
+:w
+Save as a new file:
+:w newfile.txt
+Quit Vim:
+:q
+Force quit without saving:
+:q!
+Searching
+
+Search for a term:
+/search_term
+Search backward:
+?search_term
+Navigate search results:
+Next occurrence: n
+Previous occurrence: N
+Line Numbering
+
+Show line numbers:
+:set number
+Hide line numbers:
+:set nonumber
+Practical:
+
+Search for the term "example" in a file.
+Enable line numbering and locate specific lines.
+Entering Visual Mode
+
+Visual Mode allows for text selection and manipulation. To enter Visual Mode, press:
+
+Character-wise selection:
+v
+Line-wise selection:
+V
+Block selection:
+Ctrl + v
+Practical:
+
+Open a file in Vim.
+Use v to select a word or character sequence.
+Use V to select a full line.
+Use Ctrl + v to select a rectangular block of text.
+Manipulating Text in Visual Mode
+
+Once text is selected in Visual Mode, you can manipulate it:
+
+Copy text:
+y
+Delete text:
+d
+Paste text:
+p
+Replace selected text:
+Select the text.
+Press c to clear and enter Insert Mode.
+Type the replacement text and press Esc.
