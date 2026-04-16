@@ -1,0 +1,187 @@
+
+Linux provides powerful utilities to search and filter data efficiently, streamlining tasks like file management, data parsing, and text processing.
+
+Importance of Searching and Filtering Data in Linux
+
+Saves time by automating data retrieval and organization.
+Essential for managing large datasets and directory structures.
+Integral to scripting and system administration.
+Key Utilities Overview: grep, cat, sort, uniq
+
+grep: Global Regular Expression Print
+
+Purpose: Searches for specific patterns in files or input streams.
+Syntax: grep [OPTIONS] PATTERN [FILE]
+Common Options:
+
+-i: Case-insensitive search.
+-v: Invert match to show lines that do not match the pattern.
+-n: Show line numbers with matches.
+-r: Recursively search directories.
+Example:
+
+# Find lines containing "error" in a log file:
+grep 'error' system.log
+cat: Concatenate and Display Files
+
+Purpose: Reads file content and displays it in the terminal.
+Syntax: cat [OPTIONS] [FILE]
+Example:
+
+# Display content of a file:
+cat example.txt
+sort: Sort Lines in Files
+
+Purpose: Sorts lines in text files or input streams.
+Syntax: sort [OPTIONS] [FILE]
+Common Options:
+
+-r: Reverse the sort order.
+-n: Sort numerically.
+-k: Specify a key for sorting.
+Example:
+
+# Sort a list of numbers:
+cat numbers.txt | sort -n
+uniq: Filter Unique Lines
+
+Purpose: Removes duplicate lines from sorted input.
+Syntax: uniq [OPTIONS] [FILE]
+Common Options:
+
+-c: Count occurrences of each line.
+-d: Show only duplicate lines.
+Example:
+
+# Find unique lines in a sorted file:
+sort input.txt | uniq
+Introduction to the find Utility
+
+find is a robust tool for locating files and directories based on various criteria.
+
+Basic Syntax of find
+
+find [PATH] [OPTIONS] [EXPRESSION]
+Common Options:
+
+-name: Search by file name (case-sensitive).
+-iname: Search by file name (case-insensitive).
+-type: Specify file type (e.g., f for files, d for directories).
+-size: Search by file size (e.g., +100k for files larger than 100KB).
+-mtime: Search by modification time (e.g., -1 for files modified in the last day).
+Example:
+
+# Find all .txt files in the current directory:
+find . -name "*.txt"
+
+# Find files larger than 1MB:
+find /home -size +1M
+
+# Find files modified in the last 7 days:
+find /var/log -mtime -7
+Advanced Usage and Filtering Options
+
+Combine multiple expressions using -and, -or, and ! (not).
+Execute commands on found files using -exec.
+Example:
+
+# Find and delete empty files:
+find /tmp -type f -empty -exec rm {} \;
+Practical Exercises
+
+Search for all error logs in /var/log:
+grep -r 'error' /var/log
+Find and list all .log files modified in the last 2 days:
+find /var/log -name "*.log" -mtime -2
+Sort a file of names alphabetically and remove duplicates:
+sort names.txt | uniq
+By mastering these utilities, you'll significantly enhance your ability to handle data and automate tasks in Linux.
+
+Managing Processes and Optimizing Performance
+
+Understanding Process Priority and Nice Values
+
+Process priority determines the importance of a process relative to others in the system. In Linux, the nice value is used to influence process scheduling by assigning a priority level.
+
+Key Points:
+
+Nice Values:
+Range: -20 (highest priority) to 19 (lowest priority).
+Default value: 0.
+Negative nice values require root privileges.
+Command to Check Priority:
+Use top or htop to view running processes and their priorities.
+Changing Nice Values:
+Use nice to start a process with a specific nice value.
+Use renice to change the nice value of an existing process.
+Finding Process IDs
+
+Each running process in Linux is assigned a unique Process ID (PID).
+
+Commands:
+
+List all processes: ps -e
+Find specific process: pgrep <process_name>
+Detailed information: ps -aux | grep <process_name>
+Sending Signals to Processes
+
+Linux allows sending signals to control or terminate processes.
+
+Common Signals:
+
+SIGTERM (15): Graceful termination.
+SIGKILL (9): Forceful termination.
+SIGHUP (1): Reload configuration.
+Commands:
+
+Send signal: kill -<signal_number> <PID>
+Example: kill -9 1234 (forcefully terminates process with PID 1234).
+Practical Example: Adjusting Priority of Long-Running Processes
+
+Start a Process with Nice Value:
+
+nice -n 10 sleep 1000
+This starts a sleep process with a nice value of 10.
+Change Priority of Existing Process:
+
+renice -5 -p <PID>
+Adjusts the nice value of the process with the given PID to -5.
+Monitor Changes:
+
+top
+Observe the updated priority in the PR and NI columns.
+Overview of Process States
+
+Processes in Linux can exist in different states.
+
+Common States:
+
+R: Running or runnable.
+S: Sleeping (waiting for an event).
+D: Uninterruptible sleep (waiting for I/O).
+Z: Zombie (terminated but not cleaned up).
+T: Stopped or traced.
+View Process States:
+
+Use ps -e -o pid,stat,cmd to see process states and commands.
+Different Job Types and States
+
+Jobs represent processes managed by the shell.
+
+Commands:
+
+List jobs: jobs
+Foreground job: fg <job_id>
+Background job: bg <job_id>
+Stop job: kill -TSTP <PID>
+Visualizing the Process Tree
+
+Understanding parent-child relationships among processes helps analyze system behavior.
+
+Command:
+
+pstree
+Displays processes in a tree structure.
+Example:
+pstree -p
+Shows processes along with their PIDs.
