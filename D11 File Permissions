@@ -1,0 +1,109 @@
+
+File permissions play a vital role in Linux security and system stability. They determine who can read, write, or execute files and directories, protecting sensitive data and preventing accidental or malicious changes.
+
+Key reasons for file permissions:
+
+System Security: Prevent unauthorized access.
+Data Integrity: Ensure only authorized users can modify data.
+Operational Stability: Restrict critical system files from unauthorized modifications.
+Explanation of rwx (read, write, execute) Permissions
+
+Linux permissions are represented using three sets of characters:
+
+Read (r): Allows viewing the contents of a file or listing directory contents.
+Write (w): Allows modifying file contents or creating/deleting files within a directory.
+Execute (x): Allows running a file as a program or accessing a directory.
+Structure of Permissions:
+
+Permissions are grouped for three categories:
+User (u): The owner of the file.
+Group (g): Users in the group assigned to the file.
+Others (o): All other users.
+Example:
+
+-rwxr-xr--  1 user group  1024 Dec 18 10:00 example.txt
+rwx: Permissions for the owner (read, write, execute).
+r-x: Permissions for the group (read, execute).
+r--: Permissions for others (read only).
+How Permissions are Displayed with ls -l
+
+The ls -l command provides a detailed view of files, including permissions:
+
+Example:
+
+$ ls -l
+-rw-r--r-- 1 user group  2048 Dec 18 12:00 file.txt
+Breakdown of Output:
+
+-rw-r--r--: Permission string.
+1: Link count (number of references to the file).
+user: File owner.
+group: Group assigned to the file.
+2048: File size in bytes.
+Dec 18 12:00: Last modification date and time.
+file.txt: File name.
+Breaking Down the Permission String (e.g., -rwxr-xr--)
+
+First character (-):
+
+- indicates a regular file.
+d indicates a directory.
+l indicates a symbolic link.
+Next nine characters:
+
+rwx (owner permissions).
+r-x (group permissions).
+r-- (others' permissions).
+Practical Example:
+
+Change file permissions to rw- for the owner and no access for others:
+$ chmod 600 file.txt
+Verify permissions:
+$ ls -l
+-rw------- 1 user group 1024 Dec 18 14:00 file.txt
+Introduction to File Types
+
+Files in Linux are categorized into types based on their purpose and usage.
+
+File Types Displayed by ls -l:
+
+Regular File (-): Normal files containing data or text.
+Directory (d): Container for other files or directories.
+Symbolic Link (l): Shortcut pointing to another file.
+Socket (s): Enables inter-process communication.
+Pipe (p): Allows data flow between processes.
+Block Device (b): Represents a block hardware device (e.g., hard drives).
+Character Device (c): Represents a character hardware device (e.g., keyboard).
+User Defined File Types
+
+User-defined file types are created by users for specific purposes, such as:
+
+Text Files: Configuration, log, or documentation files.
+Scripts: Automating tasks (e.g., shell scripts).
+Executables: Compiled programs or binaries.
+Example:
+
+Create a text file:
+$ echo "Hello, Linux" > myfile.txt
+Make a script executable:
+$ chmod +x script.sh
+System Defined File Types
+
+System-defined file types are pre-configured by Linux to manage system functionality:
+
+Configuration Files: Located in /etc (e.g., /etc/passwd).
+Libraries: Shared code used by applications (e.g., /lib).
+Logs: System and application logs (e.g., /var/log).
+Practical Scenarios
+
+Change directory permissions to allow group members to write:
+
+$ chmod g+w /shared-directory
+Restrict file access to the owner:
+
+$ chmod 700 confidential.txt
+Verify file type using file command:
+
+$ file example.txt
+example.txt: ASCII text
+Feel free to experiment with these commands to better understand Linux permissions and file types.
