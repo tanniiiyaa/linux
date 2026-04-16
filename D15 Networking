@@ -1,0 +1,62 @@
+
+Networking is the process of connecting computers and devices to share resources and communicate.
+
+Key Concepts:
+
+IP Address: Identifies devices on a network.
+Subnet Mask: Divides an IP address into network and host parts.
+Gateway: Routes traffic between networks.
+DNS (Domain Name System): Resolves domain names to IP addresses.
+OSI Model
+
+The OSI (Open Systems Interconnection) Model is a conceptual framework used to understand and implement network protocols.
+
+Layers:
+
+Physical Layer: Hardware components like cables and switches.
+Data Link Layer: Responsible for error detection and framing (e.g., Ethernet).
+Network Layer: Handles routing and IP addressing (e.g., IP protocol).
+Transport Layer: Ensures reliable communication (e.g., TCP, UDP).
+Session Layer: Manages sessions between applications.
+Presentation Layer: Formats data (e.g., encryption, compression).
+Application Layer: Interfaces with applications (e.g., HTTP, FTP).
+Network Types
+
+LAN (Local Area Network):
+
+Covers a small geographic area, such as an office.
+High speed and low latency.
+MAN (Metropolitan Area Network):
+
+Covers a city or metropolitan area.
+Typically used for city-wide connectivity.
+WAN (Wide Area Network):
+
+Covers large geographic areas, such as countries or continents.
+Examples include the internet.
+Types of IPs
+
+Static IP:
+
+Permanently assigned to a device.
+Commonly used for servers and network devices.
+Dynamic IP:
+
+Assigned temporarily by a DHCP server.
+Changes over time.
+Public IP:
+
+Exposed to the internet.
+Unique across the globe.
+Private IP:
+
+Used within private networks.
+Cannot be accessed directly from the internet.
+Basic Networking Commands
+
+ping 0.0.0.0 - to check internet connectivity
+dig - to check domain
+curl - to download filesfrom internet and data transfer
+wget - to download files
+ifconfig - to check ip address
+ip addr - to check ip address
