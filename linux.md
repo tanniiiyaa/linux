@@ -1,90 +1,97 @@
 
-DevOps is a combination of cultural philosophies, practices, and tools that increase an organization's ability to deliver applications and services at high velocity. It bridges the gap between development (Dev) and operations (Ops), enabling faster and more reliable software delivery.
+**DevOps** : a combination of cultural philosophies, practices, and tools that increase an organization's ability to deliver applications and services at high velocity. It bridges the gap between development (Dev) and operations (Ops), enabling faster and more reliable software delivery.
 
-Key Principles of DevOps:
+**Key Principles of DevOps:**
 
 Collaboration: Breaking silos between development, operations, and other teams.
 Automation: Automating repetitive tasks to reduce human error.
 Continuous Integration and Continuous Deployment (CI/CD): Frequent integration of code and automatic deployment to production.
 Monitoring and Feedback: Real-time monitoring to identify issues quickly.
-Benefits of DevOps:
 
+**Benefits of DevOps:**
 Faster time to market
 Improved collaboration and communication
 Higher software quality
 Enhanced scalability and reliability
-2. How IT Company Works
 
+**How IT Company Works**
 Understanding how an IT company functions is essential to grasp the role of DevOps within an organization.
 
-General Workflow:
+**General Workflow**
 
 Project Initiation:
 Requirement gathering
 Feasibility study
 Budget allocation
+
 Development:
 Coding by developers
 Regular commits to version control systems (e.g., Git)
+
 Testing:
 Automated and manual testing
 Identifying and fixing bugs
+
 Deployment:
 Releasing software to production
 Ensuring high availability and minimal downtime
+
 Maintenance:
 Monitoring performance
 Applying updates and patches
-Key Departments:
+
+**Key Departments:**
 
 Development Team: Builds the application.
 Testing Team (QA): Ensures quality through rigorous testing.
 Operations Team: Manages infrastructure and deployment.
 Business Team: Engages with clients and stakeholders.
-3. What is an Application?
 
+**What is an Application?**
 An application is a software program designed to perform a specific set of tasks for users or other systems.
 
-Types of Applications:
+**Types of Applications:**
 
 Web Applications: Accessible via web browsers (e.g., Gmail, Facebook).
 Mobile Applications: Designed for mobile devices (e.g., WhatsApp, Instagram).
 Desktop Applications: Installed on personal computers (e.g., MS Word, Photoshop).
 Microservices: Modular applications where each module performs a specific task.
-Key Components of an Application:
+
+**Key Components of an Application:**
 
 Frontend: User interface (UI) that users interact with.
 Backend: Server-side logic that handles data processing.
 Database: Stores and retrieves application data.
-4. Developers vs Testers vs DevOps
+
+**Developers vs Testers vs DevOps**
 
 Role	Responsibilities
+
 Developers	- Write code for applications.
 - Fix bugs and add new features.
 Testers	- Test the application for functionality, performance, and security.
 - Report issues.
+- 
 DevOps	- Manage CI/CD pipelines.
 - Automate infrastructure.
 - Monitor and maintain production systems.
-Differences:
-
+- 
+**Differences:**
 Focus:
 
 Developers focus on writing code.
 Testers focus on validating software quality.
 DevOps focuses on bridging the gap between development and operations.
-Tools Used:
 
+**Tools Used:**
 Developers: IDEs, Git, debugging tools.
 Testers: Selenium, JUnit, LoadRunner.
 DevOps: Jenkins, Docker, Kubernetes, Terraform.
-Conclusion:
 
+**Conclusion**
 DevOps plays a crucial role in modern IT companies by ensuring smooth collaboration and faster software delivery. Understanding how IT companies function and the roles of developers, testers, and DevOps engineers is essential for any aspiring professional.
 
-Day 2: The Strategic Imperative of DevOps
-
-Top Features of Linux
+**Top Features of Linux**
 
 Open-source and community-driven
 Highly customizable
@@ -100,12 +107,13 @@ Unlocking Linux Careers
 
 Proficiency in Linux opens doors to roles in system administration, DevOps, and cloud engineering.
 High demand for Linux skills across industries.
-Why AWS Stands Out in the Cloud Market
 
+**Why AWS Stands Out in the Cloud Market**
 Market leader with a broad range of services
 Exceptional scalability and reliability
 Comprehensive global infrastructure
-Overview of AWS
+
+**Overview of AWS**
 
 Provides compute, storage, networking, and database services
 Popular services: EC2, S3, RDS, Lambda
@@ -120,7 +128,8 @@ Scalability and Flexibility of Business with AWS
 Elastic scaling to meet demand
 Supports diverse workloads and applications
 Enables rapid deployment of new features
-Comparing AWS with Competitors
+
+**Comparing AWS with Competitors**
 
 AWS: Largest service catalog and global reach
 Azure: Strong integration with Microsoft products
@@ -147,6 +156,7 @@ Certifications:
 AWS Certified DevOps Engineer
 Kubernetes Certified Administrator
 Linux Foundation Certified Engineer
+
 Resources:
 Online platforms: Coursera, Udemy, Pluralsight
 Books: "The Phoenix Project," "The DevOps Handbook"
@@ -159,7 +169,9 @@ Goal to Achieve in CDEC
 Master core Linux and DevOps tools
 Implement real-world DevOps projects
 Achieve certifications to validate expertise
-Day 3: Navigating the Linux Landscape
+
+
+ Navigating the Linux Landscape
 
 Getting Started with Operating Systems
 
