@@ -1,0 +1,129 @@
+1. Server is Slowjjjjjjjjjj
+>> Problem could be CPU? Memory? Load?
+>> cmds : 
+top
+htop
+free -m
+uptime
+>> start by checking system load using top and uptime. 
+Then I’d analyze CPU and memory usage to identify any resource-heavy processes
+
+2. Disk is full
+>> Situation 
+>> Problem could be Which Parition? Which folder?
+>> cmds :
+df -h
+du -sh
+du -ah / | sort -rh | head -10
+>> check disk usage using df -h, then identify large directories using du, and clean up logs or unnecessary files.
+
+3. Application not accessible
+>> Problem could be is service running? Port Open?
+>> cmds :
+ps aux | grep nginx
+systemctl status nginx
+ss -tulnp
+curl localhost:80
+>>verify if the service is running, check port availability, and test locally using curl to isolate the issue.
+
+4. Logs showing errors
+>> What errors? When started?
+>> cmds
+tail -f /var/log/app.log
+grep ERROR /var/log/app.log
+journalctl -u nginx
+>> monitor logs using tail -f and filter errors using grep to identify the root cause.
+
+5. High CPU usage 
+>> Which processess?
+>> cmds
+top
+ps aux --sort=-%cpu | head
+kill -9 <pid>
+identify the process consuming high CPU using top, then decide whether to optimize or terminate it.
+
+6. Port already in use
+>> cmds
+lsof -i :8080
+kill -9 <pid>
+>> check which process is using the port and either stop it or reconfigure the application.
+
+10. Permission denied error
+>> cmds
+ls -l
+chmod 755 file.sh
+chown user:user file.sh
+>> check file permissions and ownership, then correct them using chmod or chown
+
+11. Service fails after reboot
+>> Auto-start? Config issue?
+>> cmds
+systemctl status nginx
+systemctl enable nginx
+journalctl -xe
+>> check service status and logs, and ensure it is enabled to start on boot.
+
+12. Docker container keeps crashing
+>> cmds
+docker ps -a
+docker logs <container>
+docker inspect <container>
+check container logs and inspect configuration to identify crash reasons such as misconfiguration or dependency issues.
+
+13. Website works locally but not externally
+>> Firewall? Security group? Binding?
+>> cmds
+curl localhost:8080
+ss -tulnp
+ufw status
+>> verify the app locally, then check firewall rules, port binding, and external access configurations.
+
+14. Disk full due to logs
+>> cmds
+du -sh /var/log/ (star)
+truncate -s 0 /var/log/syslog
+>> identify large log files and clear or rotate them to free space.
+
+15. Sudden traffic spike, app down
+>> Scaling? Load?
+>> cmds
+top
+netstat -an | wc -l
+>> analyze system load and connections, then scale infrastructure or apply load balancing
+
+16. Memory leak in application
+>> cmds
+top
+ps aux --sort=-%mem | head
+>> monitor memory usage over time, identify leaking processes, and restart or fix the application.
+
+17. CI/CD pipeline failing
+>> Build Logs, Permissions? Dependencies?
+>> cmds
+cat build.log
+docker logs <container>
+analyze pipeline logs, identify failure stage, and debug issues like dependency or permission errors.
+
+18. Production outage (no clear error)
+>> Infra? App? Network?
+>> Approach
+top
+df -h
+journalctl
+ss -tulnp
+curl localhost
+follow a structured approach: check system health, disk, logs, network, and application status to isolate the issue layer by layer.
+
+19. Intermittent issue
+>> Timings? Logs Correlation?
+>> cmds
+journalctl --since "10 minutes ago"
+grep ERROR logs
+>> correlate logs with timestamps and monitor patterns to identify intermittent failures.
+
+The Structure
+Understand problem
+Check system health
+Check logs
+Identify root cause
+Fix + prevent
