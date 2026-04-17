@@ -1,0 +1,160 @@
+1. File & Directory Management (Navigating servers and Managing deployment files)
+
+ls        # list files
+ls -l     # detailed view
+ls -a     # hidden files
+cd        # change directory
+pwd       # present working directory
+mkdir     # create directory
+rm -rf    # delete files/folders
+cp        # copy files
+mv        # move/rename
+touch     # create file
+stat      # file details
+tree      # folder structure
+
+2. File Viewing & Editing  {Reading logs (tail -f /var/log/app.log) Editing configs in /etc}
+
+cat       # view file
+less      # scroll file
+head      # first lines
+tail      # last lines
+tail -f   # live logs 
+nano      # simple editor
+vim       # advanced editor (important)
+
+3. Searching & Filtering
+
+grep      # search text
+grep -i   # case insensitive
+grep -r   # recursive
+find      # find files
+locate    # quick search
+which     # command path
+whereis   # binary + source
+
+4. System Monitoring & Performance (Debugging high CPU / memory issues)
+
+top       # live processes
+htop      # better UI
+ps aux    # process list
+free -m   # memory usage
+df -h     # disk usage
+du -sh    # folder size
+uptime    # system running time
+vmstat    # performance stats
+iostat    # disk I/O
+
+5. Process Management (Kill stuck deployment process)
+
+ps aux
+kill <pid>
+kill -9 <pid>
+pkill <name>
+nice
+renice
+
+6. Networking
+
+ping
+curl      # API testing    (curl http://localhost:8080)
+wget      # download files
+netstat   # ports (older)
+ss        # modern netstat
+ifconfig  # network config (old)
+ip a      # modern replacement
+traceroute
+nslookup
+dig
+
+7. Permissions & Ownership
+
+chmod     # change permissions  (chmod 755 file.sh)
+chown     # change owner
+chgrp     # change group
+
+8. Package Management
+
+Ubuntu/Debian:
+apt update
+apt install nginx
+apt remove
+  
+RHEL/CentOS:
+yum install
+dnf install
+
+9. Disk & File System
+
+df -h      # Shows disk space usage of all mounted filesystems in human-readable format (GB/MB)
+du -sh     # Shows total size of a directory in human-readable format
+mount      # Displays all mounted filesystems OR mounts a filesystem
+umount     # Unmounts (detaches) a filesystem from the directory structure
+lsblk      # Lists all block devices (disks, partitions, volumes) in a tree format
+blkid      # Shows UUID and filesystem type of disks/partitions
+
+df -h → How much disk is used?
+du -sh → Which folder is using space?
+lsblk → What disks are attached?
+mount/umount → Attach/detach storage
+blkid → Identify disks (UUID, type)
+
+10. Logs
+
+tail -f /var/log/syslog        # View system logs in real-time (live monitoring)
+tail -f /var/log/nginx/access.log   # Monitor incoming HTTP requests to Nginx in real-time
+journalctl                    # View logs managed by systemd (all services)
+journalctl -u nginx           # View logs of a specific service (nginx)
+
+11. User Management
+
+whoami     # Shows current logged-in user
+id         # Shows user ID (UID), group ID (GID), and groups
+useradd    # Creates a new user
+usermod    # Modifies user (add to group, change shell, etc.)
+passwd     # Sets or changes user password
+groups     # Shows groups a user belongs to
+
+whoami → Who am I logged in as?
+id → Check permissions & group access
+useradd → Create new user
+usermod → Manage user roles/access
+passwd → Set/reset password
+groups → Check user permissions via groups
+
+12. Compression & Archiving
+
+tar -cvf file.tar dir/    # Create archive (combine files)
+tar -xvf file.tar         # Extract archive
+gzip file                 # Compress file (.gz)
+gunzip file.gz            # Decompress file
+zip file.zip file1        # Create zip archive
+unzip file.zip            # Extract zip file
+
+tar → Archive files/folders (backup, transfer)
+gzip → Compress files (reduce size)
+zip/unzip → Common format for sharing files
+
+13. Docker + System
+
+docker ps                 # List running containers
+docker logs <container>   # View container logs
+docker exec -it <container> bash   # Access running container (interactive shell)
+docker inspect <container>         # Detailed info (IP, config, metadata)
+
+docker ps → Which containers are running?
+docker logs → Debug container issues
+docker exec → Go inside container
+docker inspect → Deep troubleshooting (network, volumes, etc.)
+
+
+|| DevOps Command Combos ||
+
+1. Check logs in real-time  :  tail -f /var/log/app.log | grep ERROR
+
+2. Find large files  :  du -ah / | sort -rh | head -10 
+  du-ah displays the disk usage of all files and directories (including hidden ones) in a human-readable format (e.g., KB, MB, GB).
+
+3. Find process using port : lsof -i :8080
+
+4. Kill process by name  :   pkill nginx
